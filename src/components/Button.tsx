@@ -18,6 +18,7 @@ const buttonStyle = css`
     outline: none;
     &:hover {
         background-color: lightyellow;
+        cursor: pointer;
     }
     &:active {
         background-color: yellow;

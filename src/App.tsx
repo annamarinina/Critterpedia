@@ -18,7 +18,7 @@ function App() {
         <Route exact path="/" component={HomePage} />
         <Route exact path="/Fish" component={FishPage} />
         <Route exact path="/Bugs" component={BugPage} />
-        <Route exact path="/Sea%20Creatures" component={SeaCreaturePage} />
+        <Route exact path="/Sea Creatures" component={SeaCreaturePage} />
     </div>
     </Router>
   );
