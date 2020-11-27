@@ -17,7 +17,7 @@ export const BugPage = () => {
 
     return (
         <div>
-            <p>test</p>
+            <p>Test - Bugs</p>
         </div>
         );
 }
