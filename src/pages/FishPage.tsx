@@ -7,7 +7,9 @@ export const FishPage = () => {
     return (
         <div>
       {service.status === 'loading' && <div>Loading...</div>}
-      {service.status === 'loaded' && console.log(service.payload)
+      {service.status === 'loaded' && service.payload.results.map((fish) => (
+          console.log(fish)
+      ))
         }
       {service.status === 'error' && (
         <div>Error, the backend moved to the dark side.</div>

@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Service } from '../types/Service';
-import { Fish } from '../types/Fish';
+import { SeaCreature } from '../types/SeaCreature';
 
-export interface Fishes {
-    results: Fish[];
+export interface SeaCreatures {
+    results: SeaCreature[];
 }
 
-const useFishService = () => {
-    const [result, setResult] = useState<Service<Fishes>>({
+const useSeaCreatureService = () => {
+    const [result, setResult] = useState<Service<SeaCreatures>>({
         status: 'loading'
     });
 
     useEffect(() => {
-        fetch('https://acnhapi.com/v1/fish')
+        fetch('https://acnhapi.com/v1/sea')
         .then(response => response.json())
         .then(response => {
             response = {results: Object.keys(response).map((key) => { return response[key]})};
@@ -24,4 +24,4 @@ const useFishService = () => {
     return result;
 };
 
-export default useFishService;
+export default useSeaCreatureService;

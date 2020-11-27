@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Service } from '../types/Service';
-import { Fish } from '../types/Fish';
+import { Bug } from '../types/Bug';
 
-export interface Fishes {
-    results: Fish[];
+export interface Bugs {
+    results: Bug[];
 }
 
-const useFishService = () => {
-    const [result, setResult] = useState<Service<Fishes>>({
+const useBugService = () => {
+    const [result, setResult] = useState<Service<Bugs>>({
         status: 'loading'
     });
 
     useEffect(() => {
-        fetch('https://acnhapi.com/v1/fish')
+        fetch('https://acnhapi.com/v1/bugs')
         .then(response => response.json())
         .then(response => {
             response = {results: Object.keys(response).map((key) => { return response[key]})};
@@ -24,4 +24,4 @@ const useFishService = () => {
     return result;
 };
 
-export default useFishService;
+export default useBugService;

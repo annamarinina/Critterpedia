@@ -1,23 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+import useBugService from '../services/BugService';
 
 export const BugPage = () => {
-
-    const url = 'https://acnhapi.com/v1/bugs';
-    const [bugs, setBugs] = useState<[]>([]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const result = await axios(url);
-            const bugData = Object.entries(result.data);
-            console.log(bugs);
-        };
-        fetchData();
-    }, []);
+    const service = useBugService();
 
     return (
         <div>
-            <p>Test - Bugs</p>
-        </div>
-        );
+      {service.status === 'loading' && <div>Loading...</div>}
+      {service.status === 'loaded' && service.payload.results.map((bug) => (
+          console.log(bug)
+      ))
+        }
+      {service.status === 'error' && (
+        <div>Error, the backend moved to the dark side.</div>
+      )}
+    </div>
+    )
 }
