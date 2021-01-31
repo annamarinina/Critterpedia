@@ -13,7 +13,7 @@ export const FishPage = () => {
       ))
         }
       {service.status === 'error' && (
-        <div>Error, the backend moved to the dark side.</div>
+        <div>Error</div>
       )}
     </div>
     )
